@@ -37,10 +37,10 @@ def add_student(request):
             dbconn = connectDB()
             dbconn.push({"ID": id, "Name": name, "Year": year, "Course": course})
 
-            # Return a JSON response indicating success
+            
             return JsonResponse({'status': 'success'})
         else:
-            # Return a JSON response indicating form errors
+           
             return JsonResponse({'status': 'errors', 'errors': form.errors})
 
 
@@ -67,8 +67,8 @@ def update_student(request):
         dbconn = connectDB()
         dbconn.child(key).update({"ID": id, "Name": name, "Year": year, "Course": course})
 
-        # Return a JSON response indicating success
+      
         return JsonResponse({'status': 'success'})
     else:
-        # Return a JSON response indicating form errors
+   
         return JsonResponse({'status': 'errors', 'errors': 'Unable to update student.'})
